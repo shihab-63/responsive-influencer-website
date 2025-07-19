@@ -67,10 +67,6 @@ body {
     margin-left: 8px;
 }
 
-img {
-    width: 100%;
-}
-
 
 /* End Repeated Style */
 
@@ -151,6 +147,10 @@ img {
     position: relative;
 }
 
+.banner_img img {
+    width: 100%;
+}
+
 .circle {
     position: absolute;
     top: 0;
@@ -161,6 +161,88 @@ img {
     filter: contrast(90%);
 }
 
+/* Company Section */
+.company_sec {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    position: relative;
+    padding: 40px 0;
+}
+
+.company_sec::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.15), transparent);
+}
+
+.company_sec::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.15), transparent);
+}
+
+/* Popular Collection */
+.cards_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.collections .section_titles {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.collection_card {
+    background-color: #fff;
+    max-width: 400px;
+    border-radius: 14px;
+    padding: 17px 14px;
+}
+
+.collection_card img {
+    width: 100%;
+}
+
+.collection_card h2 {
+    font-size: var(--h2-font);
+    font-weight: 500;
+    line-height: 40px;
+    margin: 16px 0 6px;
+}
+.card_price {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.card_icons {
+    margin-bottom: 6px;
+}
+
+.card_icons .rate {
+    margin-left: 10px;
+}
+
+.card_icons i {
+    color: #fb8200;
+    font-size: 14px;
+}
+
+.card_descrip {
+    color: var(--title-color);
+}
 
 
 
@@ -174,8 +256,7 @@ img {
 @media screen and (max-width: 576px) {
     /* Banner Section */
     .navbar,
-    .nav_links,
-    .banner {
+    .nav_links{
         flex-direction: column;
     }
 
@@ -184,12 +265,17 @@ img {
         margin-top: 30px;
     }
 
+    .banner {
+        flex-direction: column-reverse;
+    }
+
     .banner_text {
         text-align: center;
 
     }
 
     .banner_text h1 {
+        margin-top: 40px;
         font-size: 2.4rem;
     }
 
@@ -202,6 +288,18 @@ img {
         padding: 0 14px;
     }
 
-    /* Main Section */
-    
+    /* grid  */
+    .company_sec {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .company_sec img:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .cards_container {
+        grid-template-columns:  1fr;
+    }
+
 }
